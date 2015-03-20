@@ -1,0 +1,2 @@
+Find all AD accounts whose password is set to never expire:
+wmic UserAccount where PasswordExpires=False get Name
