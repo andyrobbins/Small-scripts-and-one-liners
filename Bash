@@ -9,3 +9,6 @@ enum4linux -U 10.1.1.21 | grep "user:" | awk -F ":" ' { print $2 } ' | awk -F " 
 
 From "normal" nmap output, get list of IPs that do not enforce SMB signing:
 awk -F "signing disabled" '/^Nmap/ {a=$0} /signing disabled/ {print a}' filename.nmap | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
+
+Get all AD accounts whose passwords never expire:
+wmic UserAccount where PasswordExpires=False get Name
