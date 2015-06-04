@@ -11,4 +11,4 @@ From "normal" nmap output, get list of IPs that do not enforce SMB signing:
 awk -F "signing disabled" '/^Nmap/ {a=$0} /signing disabled/ {print a}' filename.nmap | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
 
 From "grepable" nmap output, create one text file per open port, and include each IP with that port open in that text file:
-awk '/^Host:/ { for (i=3; i<=NF; i++) { if (sub(/\/open.*/, "", $i)) print $2 >> (""$i"-open.txt"); close(""$i"-open.txt"); } }' service-scan.gnmap
+awk '/^Host/ {for(i=3;i<=NF;i++){if(sub(/\/open\/.*/,"",$i))print$2>>(""$i"-open.txt");close(""$i"-open.txt");}}' svc.gnmap
