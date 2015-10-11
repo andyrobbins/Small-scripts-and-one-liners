@@ -17,7 +17,7 @@ for /f "tokens=2* delims=:" %%i in ('sc query ^|findstr "SERVICE_NAME"') do (
 )
 
 REM ========================================================================
-REM =                 Check permissions on servics                         =
+REM =                 Check permissions on services                        =
 REM =           Technique stolen from PowerUp by harmj0y                   =
 REM = https://github.com/HarmJ0y/PowerUp/blob/master/PowerUp.ps1#L104-L141 =
 REM ========================================================================
